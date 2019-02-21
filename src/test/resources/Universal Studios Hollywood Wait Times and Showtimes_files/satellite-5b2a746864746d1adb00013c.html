@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)https://assets.adobedtm.com/abc81d597d34f3596654d31bc66c028358586736/scripts/satellite-5b2a746864746d1adb00013c.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script async="" src="./scevent.min.js"></script><script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<script type='text/javascript'>\n  (function(win, doc, sdk_url){\n  if(win.snaptr) return;\n  var tr=win.snaptr=function(){\n  tr.handleRequest? tr.handleRequest.apply(tr, arguments):tr.queue.push(arguments);\n};\n  tr.queue = [];\n  var s='script';\n  var new_script_section=doc.createElement(s);\n  new_script_section.async=!0;\n  new_script_section.src=sdk_url;\n  var insert_pos=doc.getElementsByTagName(s)[0];\n  insert_pos.parentNode.insertBefore(new_script_section, insert_pos);\n})(window, document, 'https://sc-static.net/scevent.min.js');\n\n  snaptr('init','b2996e2e-ba2b-4bb0-9447-4e755eb1bdf9',{\n  //'user_email':'<USER-EMAIL>'\n})\n  snaptr('track','PAGE_VIEW') \n</scr"+"ipt>";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><script type="text/javascript">
+  (function(win, doc, sdk_url){
+  if(win.snaptr) return;
+  var tr=win.snaptr=function(){
+  tr.handleRequest? tr.handleRequest.apply(tr, arguments):tr.queue.push(arguments);
+};
+  tr.queue = [];
+  var s='script';
+  var new_script_section=doc.createElement(s);
+  new_script_section.async=!0;
+  new_script_section.src=sdk_url;
+  var insert_pos=doc.getElementsByTagName(s)[0];
+  insert_pos.parentNode.insertBefore(new_script_section, insert_pos);
+})(window, document, 'https://sc-static.net/scevent.min.js');
+
+  snaptr('init','b2996e2e-ba2b-4bb0-9447-4e755eb1bdf9',{
+  //'user_email':'<USER-EMAIL>'
+})
+  snaptr('track','PAGE_VIEW') 
+</script>
+  
+
+</body></html>

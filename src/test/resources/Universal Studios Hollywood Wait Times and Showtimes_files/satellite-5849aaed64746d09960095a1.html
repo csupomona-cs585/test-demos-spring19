@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)https://assets.adobedtm.com/abc81d597d34f3596654d31bc66c028358586736/scripts/satellite-5849aaed64746d09960095a1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<!-- Google Code for Site Visits Conversion Page -->\n<script type=\"text/javascript\">\n/* <![CDATA[ */\nvar google_conversion_id = 1053559611;\nvar google_conversion_language = \"en\";\nvar google_conversion_format = \"3\";\nvar google_conversion_color = \"ffffff\";\nvar google_conversion_label = \"_-H9COi4omsQu5aw9gM\";\nvar google_remarketing_only = false;\n/* ]]> */\n</scr"+"ipt>\n<script type=\"text/javascript\" src=\"//www.googleadservices.com/pagead/conversion.js\">\n</scr"+"ipt>\n<noscript>\n<div style=\"display:inline;\">\n<img height=\"1\" width=\"1\" style=\"border-style:none;\" alt=\"\" src=\"//www.googleadservices.com/pagead/conversion/1053559611/?label=_-H9COi4omsQu5aw9gM&amp;guid=ON&amp;script=0\"/>\n</div>\n</noscript>\n";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><!-- Google Code for Site Visits Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1053559611;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "_-H9COi4omsQu5aw9gM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./f.txt">
+</script><script src="./f(1).txt"></script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1053559611/?label=_-H9COi4omsQu5aw9gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+  
+
+</body></html>
