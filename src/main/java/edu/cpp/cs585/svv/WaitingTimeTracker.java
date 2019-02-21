@@ -54,7 +54,7 @@ public class WaitingTimeTracker {
 		  counter[4] = 1;
 		  Elements timeElements = e.select(".timeTime");
 		  counter[5] = 1;
-		  if (titleElements.size() < 0 && timeElements.size() < 0) {
+		  if (titleElements.size() > 0 && timeElements.size() > 0) {
 			  counter[6] = 1;
 			  String name = titleElements.get(0).text();
 			  counter[7] = 1;
